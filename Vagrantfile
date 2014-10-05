@@ -120,19 +120,13 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #
   #   chef.validation_client_name = "ORGNAME-validator"
   
-	# config.vm.provision "shell", inline: "apt-get update -y"
-	# config.vm.provision "shell", inline: "apt-get install python-pip -y"
-	# config.vm.provision "shell", inline: "apt-get install python-dev"
-	# apt-get install build-dep python-imaging
-	# apt-get install libjpeg8 libjpeg62-dev libfreetype6 libfreetype6-dev
-
-	# config.vm.provision "shell", inline: "apt-get install git -y"
-	# config.vm.provision "shell", inline: "pip install virtualenv virtualenvwrapper"
-
+	# set machine name
+	config.vm.hostname = "tru-vagrant"
 	# forward tightvnc port to localhost
 	config.vm.network "forwarded_port", guest: 5901, host: 5910
 	# forward browser to localhost
-	config.vm.network "forwarded_port", guest: 80, host: 8080
+	config.vm.network "forwarded_port", guest: 80, host:8080
+	config.vm.network "forwarded_port", guest: 8000, host: 8081
 	config.vm.provision "shell", path: "install.sh"
   
 end

@@ -126,7 +126,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 	config.vm.network "forwarded_port", guest: 5901, host: 5910
 	# forward browser to localhost
 	config.vm.network "forwarded_port", guest: 80, host:8080
-	config.vm.network "forwarded_port", guest: 8000, host: 8081
+	config.vm.network "forwarded_port", guest: 8000, host: 8888
 	config.vm.provision "shell", path: "install.sh"
   
 end

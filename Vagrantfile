@@ -128,7 +128,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
 	# config.vm.provision "shell", inline: "apt-get install git -y"
 	# config.vm.provision "shell", inline: "pip install virtualenv virtualenvwrapper"
-  
-  config.vm.provision "shell", path: "install.sh"
+
+	# forward tightvnc port to localhost
+	config.vm.network "forwarded_port", guest: 5901, host: 5910
+	# forward browser to localhost
+	config.vm.network "forwarded_port", guest: 80, host: 8080
+	config.vm.provision "shell", path: "install.sh"
   
 end
